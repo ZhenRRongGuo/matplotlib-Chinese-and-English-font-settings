@@ -27,27 +27,30 @@ plt.rcParams['mathtext.fontset'] = 'stix'
 plt.rcParams['font.sans-serif'] = ['SimSun', 'Times New Roman']
 ```
 <img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/04399cd4-1f08-46ac-b0f5-97479af8649d" />
+
 中文能够正常显示，但英文字符变为宋体，而不是新罗马
+
 # 解决方案
 1. 将 'SimSun' 的顺序调整到 'Times New Roman' 前面
 ```
-  plt.rcParams['font.sans-serif'] = ['SimSun', 'Times New Roman']
-  plt.rcParams['axes.unicode_minus'] = False # 关闭unicode负号转义，避免负号显示为方块
-  plt.rcParams['mathtext.fontset'] = 'stix'
+plt.rcParams['font.sans-serif'] = ['SimSun', 'Times New Roman']
+plt.rcParams['axes.unicode_minus'] = False # 关闭unicode负号转义，避免负号显示为方块
+plt.rcParams['mathtext.fontset'] = 'stix'
 ```
 2. 英文字符使用r格式化，并用美元符号$包裹（即使用tex格式），如果需要直立体，使用\text{}命令，如
 ```
-  label='线条1, ' + r'$n=100$$\text{abc}$'
-  label=r'线条2, $n=200$'
-  ax.set_xlabel(r'迭代次数 $\text{(Iteration)}$')
-  ax.set_ylabel(r'误差值 $\text{(Error Value)}$')
+label='线条1, ' + r'$n=100$$\text{abc}$'
+label=r'线条2, $n=200$'
+ax.set_xlabel(r'迭代次数 $\text{(Iteration)}$')
+ax.set_ylabel(r'误差值 $\text{(Error Value)}$')
 ```
 3. 设置轴标签字体为 Times New Roman
 ```
-  ax.tick_params(axis='both', labelfontfamily='Times New Roman')
+ax.tick_params(axis='both', labelfontfamily='Times New Roman')
 ```
 4. 最终效果
 <img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/1d73af59-614e-4515-a906-b4509b8a12d1" />
+
 # 完整代码
 ```
 import matplotlib.pyplot as plt
