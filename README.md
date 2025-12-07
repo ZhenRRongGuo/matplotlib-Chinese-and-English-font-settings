@@ -37,7 +37,7 @@ plt.rcParams['font.sans-serif'] = ['SimSun', 'Times New Roman']
 plt.rcParams['axes.unicode_minus'] = False # 关闭unicode负号转义，避免负号显示为方块
 plt.rcParams['mathtext.fontset'] = 'stix'
 ```
-2. 英文字符使用r格式化，并用美元符号$包裹（即使用tex格式），如果需要直立体，使用\text{}命令，如
+2. 英文字符使用 r 格式化，并用美元符号 $ 包裹（即使用tex格式），如果需要直立体，使用\text{}命令，如
 ```
 label='线条1, ' + r'$n=100$$\text{abc}$'
 label=r'线条2, $n=200$'
